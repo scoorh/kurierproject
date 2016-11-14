@@ -1,0 +1,10 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'tracking/style.css' %}" />
+
+<form action="{% url 'tracking:track' %}" method="get">
+  <input type="submit" value="Track existing package" />
+</form>
+
+<form action="{% url 'tracking:new' %}" method="get">
+  <input type="submit" value="Add new package to track" />
+</form>
