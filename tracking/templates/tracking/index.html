@@ -1,10 +1,12 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'tracking/style.css' %}" />
 
-<form action="{% url 'tracking:track' %}" method="get">
-  <input type="submit" value="Track existing package" />
-</form>
+<div class="main_nav">
+  <form action="{% url 'tracking:track_start' %}" method="get">
+      <input type="submit" class="tracksubmit" value="Track existing package" />
+  </form>
 
-<form action="{% url 'tracking:new' %}" method="get">
-  <input type="submit" value="Add new package to track" />
-</form>
+  <form action="{% url 'tracking:create_start' %}" method="get">
+      <input type="submit" class="createsubmit" value="Add new package to database" />
+  </form>
+</div>

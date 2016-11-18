@@ -1,0 +1,49 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'tracking/style.css' %}" />
+
+<div class="input_nav">
+  <div>
+    <form action="{% url 'tracking:track_id' id %}" method="get">
+      <label for="id">Package id:</label>
+      <input type="text" id="id" name="id" required />
+      <input type="submit" class="tracksubmit" value="Track" />
+    </form>
+  </div>
+</div>
+
+{% if no_result %}
+<div class="result_nav">
+  <label class="error_label">No entry in database</label>
+</div>
+{% else %}
+
+{% if newcall %}
+{% else %}
+<div class="result_nav">
+  <div>
+    <label>Package delivery history:</label>
+  </div>
+</div>
+{% endif %}
+
+<div class="result_tab_nav">
+  {% if newcall %}
+  {% else %}
+  <table>
+    <tr>
+      <th>Change date</th>
+      <th>Place</th>
+      <th>Message</th>
+    </tr>
+    {% for entry in track_list %}
+    <tr>
+      <td>{{entry.change_date}}</td>
+      <td>{{entry.place}}</td>
+      <td>{{entry.message}}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  {% endif %}
+</div>
+
+{% endif %}

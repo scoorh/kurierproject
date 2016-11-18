@@ -1,0 +1,20 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'tracking/style.css' %}" />
+
+<div class="input_nav">
+  <div>
+    <form action="{% url 'tracking:create_pck' %}" method="post">
+      {% csrf_token %}
+      <!-- cos nie tak z layoutem w style.css :(((( -->
+      <label for="package_id">Package id:</label>
+      <input type="text" id="package_id" name="package_id" required />
+      <label for="change_date">Change date: (YYYY-MM-DD HH:MM:SS)</label>
+      <input type="text" id="change_date" name="change_date" required />
+      <label for="place">Place:</label>
+      <input type="text" id="place" name="place" required max_length=100 />
+      <label for="message">Message:</label>
+      <input type="text" id="message" name="message" required max_length=255 />
+      <input type="submit" class="createsubmit" value="Create new entry" />
+    </form>
+  </div>
+</div>
