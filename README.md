@@ -1,4 +1,4 @@
-Twórcy:
+# Twórcy:
 	Krzysztof Benirowski
 	Hubert Stanik
 
